@@ -4,6 +4,7 @@ import Sidebar from "../ui/sidebar/Sidebar";
 import RightBar from "../ui/rightbar/RightBar";
 import { usePathname } from "next/navigation";
 import Navbar from "../ui/nav/navbar";
+import RightBarUser from "../ui/dashboard/user/rightBarUser";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
@@ -13,6 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const event = pathName.split("/").pop() === "event" ? false : true;
   const finance = pathName.split("/").pop() === "finance" ? false : true;
   const food = pathName.split("/").pop() === "food" ? false : true;
+  const user = pathName.split("/").pop() === "user" ? false : true;
   const studentInfo =
     pathName.split("/").pop() === "studentInfo123456789" ? false : true;
 
@@ -26,7 +28,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div
         className="p-5 min-h-screen bg-[#4D44B5] w-[22]"
         style={
-          student && teachers && event && finance && food && studentInfo
+          student && teachers && event && finance && food && studentInfo && user
             ? { flex: 1 }
             : { flex: 0 }
         }
@@ -43,7 +45,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </div>
       <div>
-        {student && teachers && event && finance && food && studentInfo ? (
+        {student &&
+        teachers &&
+        event &&
+        finance &&
+        food &&
+        studentInfo &&
+        user ? (
           <div
             className="p-5 min-h-screen bg-slate-50"
             style={{
@@ -52,6 +60,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             }}
           >
             <RightBar />
+          </div>
+        ) : (
+          <></>
+        )}
+        {student &&
+        teachers &&
+        event &&
+        finance &&
+        food &&
+        studentInfo &&
+        !user ? (
+          <div
+            className="p-5 h-screen bg-slate-50"
+            style={{
+              width: "100%",
+              flex: 4,
+            }}
+          >
+            <RightBarUser />
           </div>
         ) : (
           <></>
