@@ -16,10 +16,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const food = pathName.split('/').pop() === 'food' ? false : true
   const user = pathName.split('/').pop() === 'user' ? false : true
   const chat = pathName.split('/').pop() === 'chat' ? false : true
-  const studentInfo =
-    pathName.split('/').pop() === 'studentInfo123456789' ? false : true
+
+  const addStudent = pathName.split('/').pop() === 'addStudent' ? false : true
+
+  const student2 = pathName.split('/').pop()
+  const studentInfo = pathName.split('/').pop() === '123456789' ? false : true
 
   console.log('studentInfo', studentInfo)
+  console.log('student2', student2)
+  console.log('addStudent', addStudent)
 
   console.log('teachers', teachers)
   console.log('student', student)
@@ -36,7 +41,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           food &&
           studentInfo &&
           user &&
-          chat
+          chat &&
+          addStudent
             ? { flex: 1 }
             : { flex: 0 }
         }>
@@ -49,8 +55,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           !finance ||
           !food ||
           !studentInfo ||
-          user ||
-          !chat) && <Navbar />}
+          !addStudent) && <Navbar />}
         {children}
       </div>
       <div>
@@ -61,7 +66,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         food &&
         studentInfo &&
         user &&
-        chat ? (
+        chat &&
+        addStudent ? (
           <div
             className='p-5 min-h-screen bg-slate-50'
             style={{
@@ -79,6 +85,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         finance &&
         food &&
         studentInfo &&
+        addStudent &&
         !user ? (
           <div
             className='p-5 h-screen bg-slate-50 w-auto'
