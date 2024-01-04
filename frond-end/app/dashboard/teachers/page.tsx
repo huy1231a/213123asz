@@ -132,7 +132,7 @@ const Teach = () => {
                     <li className=''>
                       <Link
                         className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-[#4D44B5]'
-                        href='dashboard/student/123456789'>
+                        href='/dashboard/teachers/teachInfo'>
                         View
                       </Link>
                     </li>
