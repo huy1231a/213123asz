@@ -105,7 +105,9 @@ const Teach = () => {
                 fill='white'
               />
             </svg>
-            <button className='text-white'>New Student</button>
+            <Link href={'/dashboard/teachers/addTeacher'}>
+              <button className='text-white'>New Teachers</button>
+            </Link>
           </div>
         </div>
       </div>
